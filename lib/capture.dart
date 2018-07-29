@@ -18,16 +18,21 @@ class _CaptureState extends State<Capture> {
   @override
   void initState() {
     super.initState();
-    (() async {
-      List<CameraDescription> cameras = await availableCameras();
-      controller = new CameraController(cameras[0], ResolutionPreset.high);
+    availableCameras().then((cameras) {
+      CameraDescription rearCamera = cameras.firstWhere(
+              (desc) => desc.lensDirection == CameraLensDirection.back, orElse: () => null);
+      if (rearCamera == null) {
+        return;
+      }
+
+      controller = new CameraController(rearCamera, ResolutionPreset.high);
       controller.initialize().then((_) {
         if (!mounted) {
           return;
         }
         setState(() {});
       });
-    })();
+    });
   }
 
   @override
@@ -44,8 +49,7 @@ class _CaptureState extends State<Capture> {
       preview = new Container();
     } else {
       preview = new Container(
-          child:
-          new Center(
+          child: new Center(
               child: new AspectRatio(
                   aspectRatio: controller.value.aspectRatio,
                   child: new CameraPreview(controller))
@@ -60,7 +64,9 @@ class _CaptureState extends State<Capture> {
         body:
         new Column(
             children: <Widget>[
-              preview,
+              new Expanded(
+                child: preview,
+              ),
               new IconButton(
                 icon: new Icon(Icons.camera_alt),
                 tooltip: 'Capture',
