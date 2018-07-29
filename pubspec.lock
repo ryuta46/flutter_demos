@@ -29,6 +29,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  camera:
+    dependency: "direct main"
+    description:
+      path: "packages/camera"
+      ref: HEAD
+      resolved-ref: "2a8fd5acf5b7c60469ba729ab44e69bc61322810"
+      url: "https://github.com/ryuta46/plugins.git"
+    source: git
+    version: "0.2.2"
   charcode:
     dependency: transitive
     description:
@@ -207,6 +216,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.1"
+  path_provider:
+    dependency: "direct main"
+    description:
+      name: path_provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.1"
   plugin:
     dependency: transitive
     description:
@@ -368,3 +384,4 @@ packages:
     version: "2.1.13"
 sdks:
   dart: ">=2.0.0-dev.52.0 <=2.0.0-dev.58.0.flutter-f981f09760"
+  flutter: ">=0.1.4 <2.0.0"

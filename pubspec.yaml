@@ -9,6 +9,13 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
+  camera:
+    git:
+      url: https://github.com/ryuta46/plugins.git
+      path: packages/camera
+
+  path_provider:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

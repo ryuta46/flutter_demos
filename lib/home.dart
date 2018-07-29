@@ -9,9 +9,9 @@ class Home extends StatelessWidget {
       ),
       body: new Center(
         child: new RaisedButton(
-          child: const Text("Launch Next Screen"),
+          child: const Text("Capture"),
           onPressed: () {
-            Navigator.of(context).pushNamed("/camera");
+            Navigator.of(context).pushNamed("/capture");
           },
         ),
       ),
